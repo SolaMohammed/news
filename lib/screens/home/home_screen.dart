@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news/model/categoryDM.dart';
 import 'package:news/screens/home/my_theme.dart';
 import 'package:news/screens/home/tabs/categories/categories_tab.dart';
+import 'package:news/screens/home/tabs/news/news_search.dart';
 import 'package:news/screens/home/tabs/news/news_tab.dart';
 import 'package:news/screens/home/tabs/settings/settings.dart';
 
@@ -14,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Widget currentTab;
+  CategoryDM? selectedCategory;
   @override
   void initState() {
   currentTab=CategoriesTab(onCategoryClick);
@@ -33,9 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(onPressed: () {
+              showSearch(context: context, delegate: NewsSearch());
+            }, icon: Icon(Icons.search,size: 30,))
+          ],
           shape: theme.appBarTheme.shape,
          centerTitle: true,
-         title: Text("News App"),
+         title: selectedCategory==null? Text("News App"):Text(selectedCategory!.text),
          backgroundColor: theme.primaryColor,
          titleTextStyle: theme.textTheme.titleLarge!.copyWith(color: Colors.white),
         ),
@@ -60,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
            onTap: () {
              setState(() {
              });
+             currentTab=CategoriesTab(onCategoryClick);
              Navigator.pop(context);
            },
              child: buildDrawerRow(Icons.menu, "Categories")
@@ -80,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   onCategoryClick(CategoryDM category){
+    selectedCategory=category;
     currentTab=NewsTab(categoryId: category.id,);
     setState(() {
     });

@@ -35,4 +35,18 @@ abstract class ApiManager{
     ) return articlesResponse.articles!;
     throw Exception(articlesResponse.message);
   }
+
+  static Future<List<Article>> getResults(String query)async{
+    Uri url=Uri.https(baseUrl,ArticlesEndPoint,{
+      "apiKey":apiKey,
+      "q":query
+    });
+    http.Response response=await http.get(url);
+    Map json=jsonDecode(response.body);
+    ArticlesResponse articlesResponse=ArticlesResponse.fromJson(json);
+    if(response.statusCode>=200&&response.statusCode<300&&
+        articlesResponse.articles?.isNotEmpty==true
+    ) return articlesResponse.articles!;
+    throw Exception(articlesResponse.message);
+  }
 }

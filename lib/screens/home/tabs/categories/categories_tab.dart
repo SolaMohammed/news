@@ -6,6 +6,7 @@ import '../../../../model/categoryDM.dart';
 import 'category_widget.dart';
 class CategoriesTab extends StatelessWidget {
   Function onCategoryClick;
+
   CategoriesTab( this.onCategoryClick);
   Widget build(BuildContext context) {
     return Padding(

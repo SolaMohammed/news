@@ -15,7 +15,7 @@ class ArticleDetails extends StatelessWidget {
         ),
       shape: theme.appBarTheme.shape,
       centerTitle: true,
-      title: Text(article.source?.name??""),
+      title: Text(article.source?.name??"",style: TextStyle(color: Colors.white),),
       backgroundColor: theme.primaryColor,
       titleTextStyle: theme.textTheme.titleLarge,
     ),
@@ -45,7 +45,7 @@ class ArticleDetails extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             Text(article.content??"",style:theme.textTheme.bodySmall),
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
             InkWell(
               onTap: () {
 

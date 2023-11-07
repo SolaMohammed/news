@@ -18,7 +18,7 @@ static ThemeData light=ThemeData(
     centerTitle: true,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
       bottomLeft:Radius.circular(30) ,bottomRight:Radius.circular(30)
-    ))
+    )),
   ),
   textTheme: TextTheme(
     bodySmall: TextStyle(
@@ -30,6 +30,10 @@ static ThemeData light=ThemeData(
     bodyLarge: TextStyle(
        color: Colors.white,fontSize: 22,
       ),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
+    focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
   )
 );
 }
