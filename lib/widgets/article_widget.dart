@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news/screens/home/my_theme.dart';
 import 'package:news/screens/home/tabs/news/article_details_screen.dart';
 import '../model/ArticlesResponse.dart';
+import 'package:url_launcher/url_launcher.dart';
 class ArticleWidget extends StatelessWidget {
   Article article;
   ArticleWidget({required this.article});
