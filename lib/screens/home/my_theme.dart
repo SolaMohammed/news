@@ -11,6 +11,9 @@ class MyTheme{
   static Color grayColor=Color(0xff707070);
   static Color darkGrayColor=Color(0xff42505C);
 static ThemeData light=ThemeData(
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: Colors.white
+  ),
   primaryColor: primaryColor,
   appBarTheme: AppBarTheme(
     backgroundColor: primaryColor,
@@ -32,6 +35,7 @@ static ThemeData light=ThemeData(
       ),
   ),
   inputDecorationTheme: InputDecorationTheme(
+    hintStyle: TextStyle(color: Colors.white),
       enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
     focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
   )

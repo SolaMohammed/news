@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news/screens/home/my_theme.dart';
 
 import '../../../../api/api_manager.dart';
+import '../../../../model/ArticlesResponse.dart';
+import '../../../../widgets/article_widget.dart';
 import 'news_list/news_list.dart';
 
 class NewsSearch extends SearchDelegate{
@@ -43,4 +45,5 @@ class NewsSearch extends SearchDelegate{
   ThemeData appBarTheme(BuildContext context) {
     return MyTheme.light;
   }
+
 }

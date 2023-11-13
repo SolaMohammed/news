@@ -1,0 +1,14 @@
+{
+"categories":"الفئات",
+"settings":"الاعدادات",
+  "english": "الانجليزية",
+  "arabic":"العربية",
+  "language": "اللغة",
+ "sports":"الرياضة",
+  "politics":"السياسة",
+  "health": "الصحة",
+  "bussiness": "العمل",
+  "environment":"البيئة",
+  "sience": "العلوم",
+  "news_app": "تطبيق الأخبار"
+}

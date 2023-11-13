@@ -22,10 +22,10 @@ abstract class ApiManager{
     }
     throw Exception(sourcesReponse.message);
   }
-  static Future<List<Article>> getArticles(String sourceId)async{
+  static Future<List<Article>> getArticles({ required String sourceId})async{
     Uri url=Uri.https(baseUrl,ArticlesEndPoint,{
       "apiKey":apiKey,
-      "sources":sourceId
+      "sources":sourceId,
     });
     http.Response response=await http.get(url);
     Map json=jsonDecode(response.body);

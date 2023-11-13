@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news/screens/home/my_theme.dart';
 import 'package:news/screens/home/tabs/categories/category_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class CategoryDM{
   String id;
@@ -13,19 +15,12 @@ class CategoryDM{
     required this.backgroundColor,required this.isLeftSided
 });
 
- static List<CategoryDM> categories=[
-   CategoryDM(id: 'sports', text: 'Sports', imagePath: 'assets/sports.png',
-       backgroundColor:MyTheme.redColor , isLeftSided: true),
-   CategoryDM(id: 'technology', text: 'Politics', imagePath: 'assets/Politics.png',
-       backgroundColor:MyTheme.blueColor , isLeftSided: false),
-   CategoryDM(id: 'health', text: 'Health', imagePath: 'assets/health.png',
-       backgroundColor:MyTheme.pinkColor , isLeftSided: true),
-   CategoryDM(id: 'bussiness', text: 'Bussiness', imagePath: 'assets/bussines.png',
-       backgroundColor:MyTheme.orangeColor , isLeftSided: false),
-   CategoryDM(id: 'entertainment', text: 'Environment', imagePath: 'assets/environment.png',
-       backgroundColor:MyTheme.babyBlueColor , isLeftSided: true),
-   CategoryDM(id: 'sience', text: 'Sience', imagePath: 'assets/science.png',
-       backgroundColor:MyTheme.yellowColor , isLeftSided: false),
- ];
+
+
+ // loadData(BuildContext context){
+ //   for(int i=0;i<categories.length;i++){
+ //     categories[i].text=AppLocalizations.of(context)!.;
+ //   }
+ // }
 
 }

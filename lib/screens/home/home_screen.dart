@@ -5,6 +5,9 @@ import 'package:news/screens/home/tabs/categories/categories_tab.dart';
 import 'package:news/screens/home/tabs/news/news_search.dart';
 import 'package:news/screens/home/tabs/news/news_tab.dart';
 import 'package:news/screens/home/tabs/settings/settings.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../providers/settings_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routName="home_screen";
@@ -21,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   currentTab=CategoriesTab(onCategoryClick);
   }
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     var theme = Theme.of(context);
     return WillPopScope(
       onWillPop: () async{
@@ -42,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           shape: theme.appBarTheme.shape,
          centerTitle: true,
-         title: selectedCategory==null? Text("News App"):Text(selectedCategory!.text),
+         title: selectedCategory==null? Text(AppLocalizations.of(context)!.news_app):Text(selectedCategory!.text),
          backgroundColor: theme.primaryColor,
          titleTextStyle: theme.textTheme.titleLarge!.copyWith(color: Colors.white),
         ),
@@ -60,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
          Container(
            color: MyTheme.primaryColor,
            height: MediaQuery.of(context).size.height*0.2,
-           child: Center(child: Text("News App!",style:TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white))),
+           child: Center(child: Text("${AppLocalizations.of(context)!.news_app}!",style:TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white))),
          ),
          SizedBox(height: 8,),
          InkWell(
@@ -70,17 +74,17 @@ class _HomeScreenState extends State<HomeScreen> {
              currentTab=CategoriesTab(onCategoryClick);
              Navigator.pop(context);
            },
-             child: buildDrawerRow(Icons.menu, "Categories")
+             child: buildDrawerRow(Icons.menu, AppLocalizations.of(context)!.categories)
          ),
          SizedBox(height: 8,),
          InkWell(
              onTap: () {
-               currentTab=SettingsTab();
+               currentTab=Settings();
                Navigator.pop(context);
                setState(() {
                });
              },
-             child: buildDrawerRow(Icons.settings, "Settings")
+             child: buildDrawerRow(Icons.settings,AppLocalizations.of(context)!.settings)
          ),
        ],
      ),
