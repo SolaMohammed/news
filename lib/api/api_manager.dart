@@ -10,7 +10,7 @@ abstract class ApiManager{
   static const String sourcesEndPoint="/v2/top-headlines/sources";
   static const String ArticlesEndPoint="/v2/everything";
   static Future<List<Source>> getSources(String categoryId)async{
-    Uri url=Uri.parse('https://$baseUrl$sourcesEndPoint?apiKey=$apiKey');  //request
+    Uri url=Uri.parse('https://$baseUrl$sourcesEndPoint?apiKey=$apiKey&category=$categoryId');  //request
    http.Response response=await http.get(url);  //get response
    Map json=jsonDecode(response.body); //convert string (response.body) to json map
    SourcesReponse sourcesReponse=SourcesReponse.fromJson(json);//convert json response map to object

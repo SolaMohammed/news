@@ -46,7 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           shape: theme.appBarTheme.shape,
          centerTitle: true,
-         title: selectedCategory==null? Text(AppLocalizations.of(context)!.news_app):Text(selectedCategory!.text),
+         title: currentTab is CategoriesTab? Text(AppLocalizations.of(context)!.categories):
+         currentTab is Settings? Text(AppLocalizations.of(context)!.settings):
+         selectedCategory==null? Text(AppLocalizations.of(context)!.news_app):
+         Text(selectedCategory!.text),
          backgroundColor: theme.primaryColor,
          titleTextStyle: theme.textTheme.titleLarge!.copyWith(color: Colors.white),
         ),
@@ -72,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
              setState(() {
              });
              currentTab=CategoriesTab(onCategoryClick);
+             selectedCategory=null;
              Navigator.pop(context);
            },
              child: buildDrawerRow(Icons.menu, AppLocalizations.of(context)!.categories)
